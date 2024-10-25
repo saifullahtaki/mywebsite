@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-website
+  namespace: mywebsite
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-website
+  template:
+    metadata:
+      labels:
+        app: my-website
+    spec:
+      containers:
+      - name: my-website
+        image: m2s-registry.osl.team/taki-test/mywebsite:latest
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: harbor-registry-secret
