@@ -2,3 +2,74 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: html-config
+  namespace: mywebsite
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Info & Speed Test</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+    <div class="background-gradient"></div>
+    <div class="container">
+        <h1>Visitor Information & Speed Test</h1>
+        <div class="info-block">
+            <h3>Visitor Information</h3>
+            <p>Public IP: <span id="public-ip">Loading...</span></p>
+            <p>Private IP: <span id="private-ip">Loading...</span></p>
+            <p>MAC Address: <span id="mac-address">Restricted</span></p>
+            <p>Location: <span id="location">Loading...</span></p>
+            <p>ISP: <span id="isp">Loading...</span></p>
+            <p>Operating System: <span id="os">Loading...</span></p>
+            <p>Browser: <span id="browser">Loading...</span></p>
+            <p>Date: <span id="date">Loading...</span></p>
+            <p>Time: <span id="time">Loading...</span></p>
+        </div>
+
+        <div class="speedtest-block">
+            <h3>Internet Speed Test</h3>
+            <label for="test-duration">Select Test Duration:</label>
+            <select id="test-duration">
+                <option value="30">30 seconds</option>
+                <option value="60">1 minute</option>
+                <option value="120">2 minutes</option>
+                <option value="300">5 minutes</option>
+            </select>
+
+            <label for="server-select">Select Server:</label>
+            <select id="server-select">
+                <option value="singtel">Singtel (Singapore)</option>
+                <option value="dhaka">Dhaka (Bangladesh)</option>
+                <option value="ctg">Chittagong (Bangladesh)</option>
+                <option value="bd_iig1">IIG BD Server 1</option>
+                <option value="bd_iig2">IIG BD Server 2</option>
+                <option value="nyc">New York City</option>
+                <option value="london">London</option>
+                <option value="tokyo">Tokyo</option>
+            </select>
+
+            <div class="speedtest-circle" id="speedtest-circle">
+                <div class="circle-text" id="speed-circle-text">0 Mbps</div>
+                <button id="speedtest-button" class="speedtest-button">Start Test</button>
+            </div>
+            <div class="speed-display">
+                <p>Download Speed: <span id="download-speed">-</span></p>
+                <p>Upload Speed: <span id="upload-speed">-</span></p>
+                <p>Test Time: <span id="test-time">-</span></p>
+            </div>
+            <canvas id="speed-chart" width="400" height="200"></canvas>
+            <button id="history-button" class="awesome-button" onclick="window.open('results.html', '_blank');">View Result History</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    </body>
+    </html>
+
+ 
