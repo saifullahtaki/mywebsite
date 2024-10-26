@@ -21,5 +21,6 @@ spec:
         envFrom:               # Fixed indentation here
         - configMapRef:
             name: html-config
+            key: index.html
       imagePullSecrets:
       - name: harbor-registry-secret
