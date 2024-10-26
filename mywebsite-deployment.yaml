@@ -20,3 +20,6 @@ spec:
         - containerPort: 80
       imagePullSecrets:
       - name: harbor-registry-secret
+    envFrom:
+    - configMapRef:
+        name: mywebsite
