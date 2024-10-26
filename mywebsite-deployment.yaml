@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-website
-  namespace: mywebsite  # Namespace should match
+  namespace: mywebsite
 spec:
   replicas: 1
   selector:
@@ -18,11 +18,8 @@ spec:
         image: m2s-registry.osl.team/taki-test/mywebsite:v1
         ports:
         - containerPort: 80
-        volumeMounts:
-        - name: html-config-volume
-          mountPath: /usr/share/nginx/html/index.html
-          subPath: index.html
-      volumes:
-      - name: html-config-volume
-        configMap:
-          name: html-config
+        envFrom:               # Fixed indentation here
+        - configMapRef:
+            name: html-config
+      imagePullSecrets:
+      - name: harbor-registry-secret
