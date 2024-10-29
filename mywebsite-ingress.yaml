@@ -10,8 +10,13 @@ metadata:
     app: my-website
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - dev.mywebsite.team
+      secretName: my-website-tls  # Replace with your actual TLS secret name
   rules:
-    - http: dev.mywebsite.team
+    - host: dev.mywebsite.team
+      http:
         paths:
           - path: /
             pathType: Prefix
