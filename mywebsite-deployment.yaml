@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: my-website
-        image: m2s-registry.osl.team/taki-test/mywebsite:latest
+        image: m2s-registry.osl.team/taki-test/mywebsite:v1
         ports:
         - containerPort: 80
       imagePullSecrets:
