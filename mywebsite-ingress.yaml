@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - http:
+    - http: dev.mywebsite.team
         paths:
           - path: /
             pathType: Prefix
