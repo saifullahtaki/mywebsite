@@ -18,9 +18,5 @@ spec:
         image: m2s-registry.osl.team/taki-test/mywebsite:latest
         ports:
         - containerPort: 80
-        envFrom:               # Fixed indentation here
-        - configMapRef:
-            name: html-config
-            key: index.html
       imagePullSecrets:
       - name: harbor-registry-secret
