@@ -13,7 +13,7 @@ spec:
   tls:
     - hosts:
         - dev.mywebsite.team
-      secretName: my-website-tls  # Replace with your actual TLS secret name
+      secretName: my-website-tls
   rules:
     - host: dev.mywebsite.team
       http:
